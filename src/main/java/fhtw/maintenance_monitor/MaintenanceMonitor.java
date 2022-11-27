@@ -12,5 +12,9 @@ public class MaintenanceMonitor {
         return numberOne + numberTwo;
     }
 
+    public long message_standard () {
+        return 999;
+    }
+
 
 }
