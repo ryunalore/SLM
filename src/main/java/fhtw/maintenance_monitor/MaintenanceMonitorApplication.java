@@ -1,5 +1,5 @@
 /**
- * SLM Project:
+ * SLM Project: 2022
  * participants: Hannelore Fayefunmi, Nathalie Bistrak, Ilhan Kaplan
  */
 package fhtw.maintenance_monitor;
