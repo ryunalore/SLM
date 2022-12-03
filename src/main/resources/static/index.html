@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Maintenance Monitor</title>
+    <script>
+
+        function getMessage(){
+            fetch("http://localhost:8080/api/message")
+                .then(response => response.text())
+                .then(data => {
+
+                    let current = new Date();
+                    let msg = document.getElementById("message");
+                    let time = document.getElementById("time");
+
+                    if(msg.innerText=="Everything works as expected")
+                    {
+                        document.getElementById("body").style.backgroundColor = 'lightgreen';
+                    }
+                    else {
+                        document.getElementById("body").style.backgroundColor = 'lightcoral';
+
+
+                    }
+                    msg.innerHTML = data;
+                    time.innerHTML = "last update: " + current.getHours() + ":" + current.getMinutes() + ":" + current.getSeconds();
+
+                });
+        }
+
+        getMessage();
+
+        setInterval(getMessage, 5000);
+    </script>
+</head>
+<body id="body">
+
+<div style="text-align: center; margin-top: 20%;">
+    <h2>Maintenance Monitor</h2>
+    <span id="message"></span>
+    <p id="time"></p>
+</div>
+
+</body>
+</html>

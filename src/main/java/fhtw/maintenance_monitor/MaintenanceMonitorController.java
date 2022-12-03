@@ -1,9 +1,7 @@
 package fhtw.maintenance_monitor;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.ServletRequestBindingException;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class MaintenanceMonitorController {
@@ -23,13 +21,19 @@ public class MaintenanceMonitorController {
         return monitor.getMessage_current();
     }
 
-    @PutMapping("/api/message/set")
+    @RequestMapping("/api/message/set")
     public String message_set(@RequestParam(name="m") String m) {
         return monitor.message_set(m);
     }
 
-    @PutMapping("/api/message/reset")
+    @RequestMapping("/api/message/reset")
     public String message_reset() {
         return monitor.message_reset();
+    }
+
+    @RequestMapping("/api/example")
+    public String example()
+    {
+        return "example";
     }
 }
